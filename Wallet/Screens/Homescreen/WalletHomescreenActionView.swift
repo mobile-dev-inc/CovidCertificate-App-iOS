@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 
 class WalletHomescreenActionView: UIView {
@@ -17,6 +18,7 @@ class WalletHomescreenActionView: UIView {
     public var addQRCertificateTouchUpCallback: (() -> Void)?
     public var addPDFCertificateTouchUpCallback: (() -> Void)?
     public var addTransferCodeTouchUpCallback: (() -> Void)?
+    public var shareRecovationTouchUpCallback: (() -> Void)?
     public var showVaccinationAppointmentInformationTouchUpCallback: (() -> Void)?
 
     public var isVaccinationButtonHidden: Bool = true {
@@ -31,6 +33,9 @@ class WalletHomescreenActionView: UIView {
 
     private let addCertificateView = AddCertificateView()
     private let addTransferCodeButton = RoundedButton(title: UBLocalized.wallet_homescreen_add_transfer_code)
+
+    private let _testExportRevocations = RoundedButton(title: "share revocations")
+
     private lazy var showVaccinationAppointmentInformationButton = RoundedButton(title: UBLocalized.vaccination_homescreen_button_title)
 
     // MARK: - Init
@@ -59,6 +64,7 @@ class WalletHomescreenActionView: UIView {
 
         stackView.addArrangedView(addCertificateView)
         stackView.addArrangedView(addTransferCodeButton)
+        stackView.addArrangedView(_testExportRevocations)
 
         stackView.addArrangedView(showVaccinationAppointmentInformationButton)
         showVaccinationAppointmentInformationButton.ub_setHidden(isVaccinationButtonHidden)
@@ -83,6 +89,11 @@ class WalletHomescreenActionView: UIView {
         showVaccinationAppointmentInformationButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.showVaccinationAppointmentInformationTouchUpCallback?()
+        }
+
+        _testExportRevocations.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.shareRecovationTouchUpCallback?()
         }
     }
 }

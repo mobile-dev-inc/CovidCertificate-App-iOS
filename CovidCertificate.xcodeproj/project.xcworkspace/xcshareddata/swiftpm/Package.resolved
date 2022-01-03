@@ -41,8 +41,8 @@
         "package": "CovidCertificateSDK",
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
-          "branch": "main",
-          "revision": "aef7c4d3d42b65932c7e93bfa4d8494cbc6fd147",
+          "branch": "feature/adds-testing-revocation-exposure-method",
+          "revision": "c9e9b04dd3a98fa4b472845706c98576240493a1",
           "version": null
         }
       },

@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 import MobileCoreServices
 
@@ -157,6 +158,16 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
             let vc = VaccinationInformationViewController()
             vc.presentInNavigationController(from: strongSelf)
+        }
+
+        actionPopupView.shareRecovationTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            let list = CovidCertificateSDK._testRevocedCertificates
+            let json = try! JSONEncoder().encode(list)
+            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [json], applicationActivities: nil)
+
+            activityViewController.title = "Revocation list"
+            strongSelf.present(activityViewController, animated: true, completion: nil)
         }
 
         bottomView.faqButtonCallback = { [weak self] in

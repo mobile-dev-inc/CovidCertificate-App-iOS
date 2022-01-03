@@ -2784,7 +2784,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admin-ch/CovidCertificate-SDK-iOS";
 			requirement = {
-				branch = main;
+				branch = "feature/adds-testing-revocation-exposure-method";
 				kind = branch;
 			};
 		};
