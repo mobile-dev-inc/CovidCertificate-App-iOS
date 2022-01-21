@@ -186,14 +186,14 @@ class RoundedButton: UBButton {
 
     // MARK: - Init
 
-    init(titleKey: UBLocalized.UBLocalizedKey) {
+    init(titleKey: UBLocalized.Key) {
         super.init()
         setup(titleKey: titleKey)
     }
 
     // MARK: - Setup
 
-    private func setup(titleKey: UBLocalized.UBLocalizedKey) {
+    private func setup(titleKey: UBLocalized.Key) {
         highlightedBackgroundColor = UIColor.cc_touchState
         backgroundColor = UIColor.cc_white
         layer.cornerRadius = 20
@@ -224,7 +224,7 @@ class IconButton: UBButton {
 
     // MARK: - Init
 
-    init(textKey: UBLocalized.UBLocalizedKey, icon: UIImage?) {
+    init(textKey: UBLocalized.Key, icon: UIImage?) {
         super.init()
 
         textLabel.text = UBLocalized.translate(textKey)

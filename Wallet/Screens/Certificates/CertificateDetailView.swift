@@ -222,13 +222,13 @@ class CertificateDetailView: UIView {
 
                 addDividerLine()
 
-                let dateKey: UBLocalized.UBLocalizedKey = test.isPositiveAntigenTest ? .wallet_certificate_antigen_positive_date_key : .wallet_certificate_test_sample_date_title_key
+                let dateKey: UBLocalized.Key = test.isPositiveAntigenTest ? .wallet_certificate_antigen_positive_date_key : .wallet_certificate_test_sample_date_title_key
                 addValueItem(title: UBLocalized.translationWithEnglish(key: dateKey), value: test.displaySampleDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displaySampleDateTime))
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title_key), value: test.displayResultDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displayResultDateTime))
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_done_by_key), value: test.testCenter)
             }
 
-            let key: UBLocalized.UBLocalizedKey = test.isSwitzerlandException ? .wallet_certificate_ausnahme_issued_country_key : .wallet_certificate_test_land_key
+            let key: UBLocalized.Key = test.isSwitzerlandException ? .wallet_certificate_ausnahme_issued_country_key : .wallet_certificate_test_land_key
             let title = UBLocalized.translationWithEnglish(key: key)
 
             if showEnglishLabels, let displayCountryEnglish = test.displayCountryEnglish {

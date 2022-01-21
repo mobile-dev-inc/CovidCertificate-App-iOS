@@ -32,7 +32,7 @@ import Foundation
   {% endfor %}
 {% endfilter %}{% endmacro %}
 {% macro recursiveBlock table item %}
-   enum {{enumName}}Key : String {
+   enum Key : String {
     {% for string in item.strings %}
     {% if not param.noComments %}
     /// {{string.translation}}
@@ -50,13 +50,13 @@ import Foundation
   {% endif %}
   {% if string.types %}
   {{accessModifier}} static func {{string.key}}({% call parametersBlock string.types %}) -> String {
-    return {{enumName}}.tr({{enumName}}Key.{{string.key}}_key, {% call argumentsBlock string.types %})
+    return {{enumName}}.tr(Key.{{string.key}}_key, {% call argumentsBlock string.types %})
   }
   {% elif param.lookupFunction %}
   {# custom localization function is mostly used for in-app lang selection, so we want the loc to be recomputed at each call for those (hence the computed var) #}
-  {{accessModifier}} static var {{string.key}}: String { return {{enumName}}.tr({{enumName}}Key.{{string.key}}_key) }
+  {{accessModifier}} static var {{string.key}}: String { return {{enumName}}.tr(Key.{{string.key}}_key) }
   {% else %}
-  {{accessModifier}} static let {{string.key}} = {{enumName}}.tr({{enumName}}Key.{{string.key}}_key)
+  {{accessModifier}} static let {{string.key}} = {{enumName}}.tr(Key.{{string.key}}_key)
   {% endif %}
   {% endfor %}
   {% for child in item.children %}
@@ -81,7 +81,7 @@ import Foundation
 // MARK: - Implementation Details
 
 extension {{enumName}} {
-  private static func tr(_ key: {{enumName}}Key, _ table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
+  private static func tr(_ key: Key, _ table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
     {% if param.lookupFunction %}
     let format = {{ param.lookupFunction }}(key, table)
     {% else %}
@@ -92,7 +92,7 @@ extension {{enumName}} {
 }
 
 extension {{enumName}} {
-  public static func translate(_ key: {{enumName}}Key, languageKey: String? = nil, table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
+  public static func translate(_ key: Key, languageKey: String? = nil, table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
     guard let languageKey = languageKey else {
       return tr(key, table, args)
     }
