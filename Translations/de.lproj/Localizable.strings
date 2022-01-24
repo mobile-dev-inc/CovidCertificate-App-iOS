@@ -1455,4 +1455,4 @@
 "wallet_eol_banner_invalid_from_first_february_popup_link_url" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum, welches ab dem 31.1.2022 mit der reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum, welches ab dem 31. Jan 2022 mit der reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.";
