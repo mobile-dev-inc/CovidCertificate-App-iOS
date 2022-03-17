@@ -152,6 +152,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_: UIApplication) {
+        #if DEBUG
+        NSLog("finish span launch.appLaunchToMethodEnd")
+        #endif
+        
         removeBlurView()
     }
 
