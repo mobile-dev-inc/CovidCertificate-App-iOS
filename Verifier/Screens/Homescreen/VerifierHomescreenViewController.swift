@@ -19,9 +19,15 @@ extension Notification.Name {
 
 class VerifierHomescreenViewController: HomescreenBaseViewController {
     // MARK: - Init
+    
+    
 
     init() {
         super.init(color: .cc_greyish)
+        print("Creating Server...")
+        let server = Server(id: 3)
+        let client = Client(server: server)
+        server.add(client: client)
     }
 
     // MARK: - Subviews
